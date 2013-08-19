@@ -12,6 +12,7 @@
 
 #define PATH_TO_PLIST @""
 #define PATH_TO_FOLDER @""
+#define kScale 1.0f
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -54,13 +55,12 @@
 -(void) saveSpriteToFile:(NSString *)name inFolder:(NSString *) folder {
     CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:name];
     CGSize spriteSize = [sprite contentSize];
-    float scale = 1;
     int nWidth = spriteSize.width;
     int nHeight = spriteSize.height;
-    nWidth *= scale;
-    nHeight *= scale;
+    nWidth *= kScale;
+    nHeight *= kScale;
     [sprite setPosition:ccp(spriteSize.width / 2, spriteSize.height / 2)];
-    [sprite setScale:scale];
+    [sprite setScale:kScale];
     [self addChild:sprite];
     
     CCRenderTexture* render = [CCRenderTexture renderTextureWithWidth:sprite.contentSize.width height:sprite.contentSize.height];
